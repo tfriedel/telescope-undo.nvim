@@ -18,7 +18,7 @@ local function get_previewer(opts)
   end
   local has_powershell = vim.fn.executable("powershell") == 1
   local has_bash = vim.fn.executable("bash") == 1
-  if opts.use_delta and not is_wsl and (has_powershell or has_bash) and vim.fn.executable("delta") == 1 then
+  if opts.use_delta and (has_powershell or has_bash) and vim.fn.executable("delta") == 1 then
     return previewers.new_termopen_previewer({
       get_command = function(entry, _)
         local append = ""
